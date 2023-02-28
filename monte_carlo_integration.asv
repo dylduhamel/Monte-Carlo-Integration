@@ -1,0 +1,18 @@
+function xApprox = monte_carlo(func, a, b, sampleSize)
+    % Function to compute the Monte-Carlo integral of a function func
+    % Uses random sampling of size sampleSizw
+    % Parameters
+    i = 1;
+    N = sampleSize;
+    funcVal = 0;
+
+    vals = rand(N,1)*(b-a) + a;
+
+    while i <= N
+        funcVal = funcVal + func(vals(i));
+        i = i+1;
+    end
+
+    xApprox = (b-a)/N*funcVal;
+   
+end
